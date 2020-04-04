@@ -40,6 +40,7 @@
       <e p="Book.Core" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Book.Core.csproj" t="IncludeRecursive" />
+        <e p="IUnitOfWork.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="AuthorModel.cs" t="Include" />
           <e p="BookModel.cs" t="Include" />
@@ -55,6 +56,10 @@
           <e p="IAuthorRepository.cs" t="Include" />
           <e p="IBookRepository.cs" t="Include" />
           <e p="IRepository.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="IAuthorService.cs" t="Include" />
+          <e p="IBookService.cs" t="Include" />
         </e>
       </e>
       <e p="Book.DAL" t="IncludeRecursive">
