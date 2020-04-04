@@ -3,15 +3,15 @@ using System.Collections.ObjectModel;
 
 namespace Book.Core.Models
 {
-    public class Author
+    public class AuthorModel
     {
-        public Author()
+        public AuthorModel()
         {
-            Books = new Collection<Book>();
+            Books = new Collection<BookModel>();
         }
         
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Book> Books { get; set; }
+        public ICollection<BookModel> Books { get; set; }
     }
 }
