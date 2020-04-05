@@ -56,3 +56,9 @@ D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\net
 D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\Book.DAL.dll
 D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\Book.DAL.pdb
+D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Study\8term\DotNet\Book\Book.API\obj\Debug\netcoreapp3.1\Book.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Study\8term\DotNet\Book\Book.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
