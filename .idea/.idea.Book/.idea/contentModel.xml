@@ -10,8 +10,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Book.API.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="AuthorsController.cs" t="Include" />
           <e p="BooksController.cs" t="Include" />
-          <e p="WeatherForecastController.cs" t="Include" />
         </e>
         <e p="Mapping" t="Include">
           <e p="MappingProfile.cs" t="Include" />
@@ -38,7 +38,6 @@
           <e p="SaveAuthorResourceValidator.cs" t="Include" />
           <e p="SaveBookResourceValidator.cs" t="Include" />
         </e>
-        <e p="WeatherForecast.cs" t="Include" />
       </e>
       <e p="Book.BLL" t="IncludeRecursive">
         <e p="AuthorService.cs" t="Include" />

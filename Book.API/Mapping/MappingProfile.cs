@@ -12,11 +12,13 @@ namespace Book.API.Mapping
             CreateMap<BookModel, BookResource>();
             CreateMap<AuthorModel, AuthorResource>();
             CreateMap<BookModel, SaveBookResource>();
+            CreateMap<AuthorModel, SaveAuthorResource>();
             
             // Resource to Domain
             CreateMap<BookResource, BookModel>();
             CreateMap<AuthorResource, AuthorModel>();
             CreateMap<SaveBookResource, BookModel>();
+            CreateMap<SaveAuthorResource, AuthorModel>();
 
         }
     }
