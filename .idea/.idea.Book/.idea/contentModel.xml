@@ -27,8 +27,10 @@
         <e p="WeatherForecast.cs" t="Include" />
       </e>
       <e p="Book.BLL" t="IncludeRecursive">
+        <e p="AuthorService.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Book.BLL.csproj" t="IncludeRecursive" />
+        <e p="BookService.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
