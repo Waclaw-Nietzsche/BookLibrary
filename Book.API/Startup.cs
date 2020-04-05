@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Book.Core;
+using Book.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +29,13 @@ namespace Book.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<BookDbContext>
+                (options => 
+                options.UseSqlServer(
+                    Configuration.GetConnectionString(
+                        "Default"), 
+                    x => x.MigrationsAssembly("Book.DAL")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

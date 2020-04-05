@@ -70,6 +70,11 @@
           <e p="AuthorConfiguration.cs" t="Include" />
           <e p="BookConfiguration.cs" t="Include" />
         </e>
+        <e p="Migrations" t="Include">
+          <e p="20200405014841_InitialModel.cs" t="Include" />
+          <e p="20200405014841_InitialModel.Designer.cs" t="Include" />
+          <e p="BookDbContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -77,6 +82,12 @@
             </e>
           </e>
         </e>
+        <e p="Repositories" t="Include">
+          <e p="AuthorRepository.cs" t="Include" />
+          <e p="BookRepository.cs" t="Include" />
+          <e p="Repository.cs" t="Include" />
+        </e>
+        <e p="UnitOfWork.cs" t="Include" />
       </e>
       <e p="Book.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

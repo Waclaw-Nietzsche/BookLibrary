@@ -7,6 +7,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Book.BLL\Book.BLL.csproj" />
       <ProjectReference Include="..\Book.Core\Book.Core.csproj" />
+      <ProjectReference Include="..\Book.DAL\Book.DAL.csproj" />
     </ItemGroup>
 
 
