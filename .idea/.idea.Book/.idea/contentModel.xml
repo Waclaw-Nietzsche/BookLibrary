@@ -30,8 +30,14 @@
         <e p="Resources" t="Include">
           <e p="AuthorResource.cs" t="Include" />
           <e p="BookResource.cs" t="Include" />
+          <e p="SaveAuthorResource.cs" t="Include" />
+          <e p="SaveBookResource.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="Validators" t="Include">
+          <e p="SaveAuthorResourceValidator.cs" t="Include" />
+          <e p="SaveBookResourceValidator.cs" t="Include" />
+        </e>
         <e p="WeatherForecast.cs" t="Include" />
       </e>
       <e p="Book.BLL" t="IncludeRecursive">

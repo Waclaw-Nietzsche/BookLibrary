@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xGlyd3WaTRyeTUyXK/lH9y9bZV7JX+/szKJm8TGvUehbgaCG0VvT0cl3DcVPeHYCFaAvgd8DyIKGZMiWKv+Ruw==",
+  "dgSpecHash": "xeC0yGfMl3b8MkV2gJDgoAIZfkD5kBox7cDkdnuKEYKTDHstlPONPKXpbJAoArbn7z3yj7b2XYxxaFhuN74JEQ==",
   "success": true,
   "projectFilePath": "D:\\Study\\8term\\DotNet\\Book\\Book.API\\Book.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Slava\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
