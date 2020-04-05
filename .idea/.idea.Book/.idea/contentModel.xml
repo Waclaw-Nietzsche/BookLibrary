@@ -73,6 +73,8 @@
         <e p="Migrations" t="Include">
           <e p="20200405014841_InitialModel.cs" t="Include" />
           <e p="20200405014841_InitialModel.Designer.cs" t="Include" />
+          <e p="20200405135444_SeedBooksAndAuthorsTable.cs" t="Include" />
+          <e p="20200405135444_SeedBooksAndAuthorsTable.Designer.cs" t="Include" />
           <e p="BookDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
