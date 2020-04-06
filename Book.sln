@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.BLL", "Book.BLL\Book.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.DAL", "Book.DAL\Book.DAL.csproj", "{29574C9F-603F-4CAC-9870-D88882D64685}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.BLL.Unit", "Book.BLL.Unit\Book.BLL.Unit.csproj", "{EA3150BE-D418-4B7A-A303-BEF369ABAC6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{29574C9F-603F-4CAC-9870-D88882D64685}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29574C9F-603F-4CAC-9870-D88882D64685}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29574C9F-603F-4CAC-9870-D88882D64685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA3150BE-D418-4B7A-A303-BEF369ABAC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3150BE-D418-4B7A-A303-BEF369ABAC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3150BE-D418-4B7A-A303-BEF369ABAC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3150BE-D418-4B7A-A303-BEF369ABAC6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
