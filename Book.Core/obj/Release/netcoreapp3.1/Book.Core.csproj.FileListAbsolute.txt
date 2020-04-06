@@ -1,0 +1,9 @@
+D:\Study\8term\DotNet\Book\Book.Core\bin\Release\netcoreapp3.1\Book.Core.deps.json
+D:\Study\8term\DotNet\Book\Book.Core\bin\Release\netcoreapp3.1\Book.Core.dll
+D:\Study\8term\DotNet\Book\Book.Core\bin\Release\netcoreapp3.1\Book.Core.pdb
+D:\Study\8term\DotNet\Book\Book.Core\obj\Release\netcoreapp3.1\Book.Core.csprojAssemblyReference.cache
+D:\Study\8term\DotNet\Book\Book.Core\obj\Release\netcoreapp3.1\Book.Core.csproj.CoreCompileInputs.cache
+D:\Study\8term\DotNet\Book\Book.Core\obj\Release\netcoreapp3.1\Book.Core.AssemblyInfoInputs.cache
+D:\Study\8term\DotNet\Book\Book.Core\obj\Release\netcoreapp3.1\Book.Core.AssemblyInfo.cs
+D:\Study\8term\DotNet\Book\Book.Core\obj\Release\netcoreapp3.1\Book.Core.dll
+D:\Study\8term\DotNet\Book\Book.Core\obj\Release\netcoreapp3.1\Book.Core.pdb

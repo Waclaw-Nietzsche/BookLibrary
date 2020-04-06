@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Book.Core;
 using Book.Core.Models;
@@ -42,6 +43,11 @@ namespace Book.BLL
 
         public async Task UpdateAuthor(AuthorModel authorToBeUpdated, AuthorModel author)
         {
+            if ((authorToBeUpdated == null) || (author == null))
+            {
+                throw new ArgumentNullException(nameof(authorToBeUpdated));
+            }
+            
             authorToBeUpdated.Name = author.Name;
 
             await _unitOfWork.CommitAsync();

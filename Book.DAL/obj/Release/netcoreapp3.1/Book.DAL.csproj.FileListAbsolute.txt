@@ -1,0 +1,15 @@
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.DAL.deps.json
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.DAL.runtimeconfig.json
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.DAL.runtimeconfig.dev.json
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.DAL.dll
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.DAL.pdb
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.Core.dll
+D:\Study\8term\DotNet\Book\Book.DAL\bin\Release\netcoreapp3.1\Book.Core.pdb
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.csprojAssemblyReference.cache
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.csproj.CoreCompileInputs.cache
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.AssemblyInfoInputs.cache
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.AssemblyInfo.cs
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.csproj.CopyComplete
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.dll
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.pdb
+D:\Study\8term\DotNet\Book\Book.DAL\obj\Release\netcoreapp3.1\Book.DAL.genruntimeconfig.cache

@@ -1,0 +1,12 @@
+D:\Study\8term\DotNet\Book\Book.BLL\bin\Release\netcoreapp3.1\Book.BLL.deps.json
+D:\Study\8term\DotNet\Book\Book.BLL\bin\Release\netcoreapp3.1\Book.BLL.dll
+D:\Study\8term\DotNet\Book\Book.BLL\bin\Release\netcoreapp3.1\Book.BLL.pdb
+D:\Study\8term\DotNet\Book\Book.BLL\bin\Release\netcoreapp3.1\Book.Core.dll
+D:\Study\8term\DotNet\Book\Book.BLL\bin\Release\netcoreapp3.1\Book.Core.pdb
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.csprojAssemblyReference.cache
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.csproj.CoreCompileInputs.cache
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.AssemblyInfoInputs.cache
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.AssemblyInfo.cs
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.csproj.CopyComplete
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.dll
+D:\Study\8term\DotNet\Book\Book.BLL\obj\Release\netcoreapp3.1\Book.BLL.pdb

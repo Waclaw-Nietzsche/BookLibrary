@@ -18,6 +18,11 @@ namespace Book.BLL
 
         public async Task<BookModel> CreateBook(BookModel newBook)
         {
+            if (newBook == null)
+            {
+                throw new ArgumentNullException(nameof(newBook));
+            }
+            
             await _unitOfWork.Books.AddAsync(newBook);
             await _unitOfWork.CommitAsync();
             return newBook;
@@ -53,7 +58,6 @@ namespace Book.BLL
             {
                 throw new ArgumentNullException(nameof(bookToBeUpdated));
             }
-            
             
             bookToBeUpdated.Name = book.Name;
             bookToBeUpdated.AuthorId = book.AuthorId;
