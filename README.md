@@ -5,7 +5,7 @@
 
 В данном репозитории представлено веб-API приложение «Библиотека книг», реализованное с помощью ASP.NET Core.
 Выполнено следующее:
-1.	Реализован проект, состоящий из слоёв (Core layer, Business logic layer, Data Access layer);
+1.	Реализован проект, состоящий из слоёв (Core layer, Business logic layer, Data Access layer, WebAPI);
 2.	Реализованы паттерны Repository и Unit of Work;
 3.	Реализовано использование Entity Framework для работы с базой данных SQL Server Express;
 4.	Реализовано использование Automapper для маппаинга моделей в ресурсы веб-API;
