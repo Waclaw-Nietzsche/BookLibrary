@@ -13,7 +13,7 @@ namespace Book.BLL.Unit
         private Mock<IUnitOfWork> _unitOfWork = new Mock<IUnitOfWork>();
         
         
-        //[Fact]
+        [Fact]
         public void CreateAuthor_NoObjectTaskCompleted()
         {
             // Arrange
@@ -29,7 +29,7 @@ namespace Book.BLL.Unit
             Assert.Equal(status, result.Status);
         }
         
-        //[Fact]
+        [Fact]
         public async void GetAuthorById_Task_Return_OkResult()  
         {  
             //Arrange  
