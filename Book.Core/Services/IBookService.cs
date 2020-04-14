@@ -10,7 +10,7 @@ namespace Book.Core.Services
         Task<BookModel> GetBookById(int id);
         Task<IEnumerable<BookModel>> GetBooksByAuthorId(int authorId);
         Task<BookModel> CreateBook(BookModel newBook);
-        Task UpdateBook(BookModel bookToBeUpdated, BookModel book);
+        Task UpdateBook(int id, BookModel book);
         Task DeleteBook(BookModel book);
     }
 }

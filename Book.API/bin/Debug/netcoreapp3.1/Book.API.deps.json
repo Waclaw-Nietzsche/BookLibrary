@@ -1320,6 +1320,9 @@
         }
       },
       "Book.Core/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "8.6.2"
+        },
         "runtime": {
           "Book.Core.dll": {}
         },

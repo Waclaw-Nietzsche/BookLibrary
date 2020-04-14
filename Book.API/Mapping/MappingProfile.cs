@@ -8,18 +8,11 @@ namespace Book.API.Mapping
     {
         public MappingProfile()
         {
-            // Domain to Resource
-            CreateMap<BookModel, BookResource>();
-            CreateMap<AuthorModel, AuthorResource>();
-            CreateMap<BookModel, SaveBookResource>();
-            CreateMap<AuthorModel, SaveAuthorResource>();
-            
-            // Resource to Domain
-            CreateMap<BookResource, BookModel>();
-            CreateMap<AuthorResource, AuthorModel>();
-            CreateMap<SaveBookResource, BookModel>();
-            CreateMap<SaveAuthorResource, AuthorModel>();
-
+            // Domain to Resource & Resource to Domain
+            CreateMap<BookModel, BookResource>().ReverseMap();
+            CreateMap<AuthorModel, AuthorResource>().ReverseMap();
+            CreateMap<BookModel, SaveBookResource>().ReverseMap();
+            CreateMap<AuthorModel, SaveAuthorResource>().ReverseMap();
         }
     }
 }

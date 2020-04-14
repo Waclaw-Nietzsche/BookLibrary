@@ -18,9 +18,12 @@ namespace Book.BLL
 
         public async Task<AuthorModel> CreateAuthor(AuthorModel newAuthor)
         {
-            await _unitOfWork.Authors
-                .AddAsync(newAuthor);
-
+            if (ExistsAuthor(newAuthor))
+            {
+                await _unitOfWork.Authors.AddAsync(newAuthor);
+                await _unitOfWork.CommitAsync();
+            }
+            
             return newAuthor;
         }
 
@@ -41,16 +44,19 @@ namespace Book.BLL
             return await _unitOfWork.Authors.GetByIdAsync(id);
         }
 
-        public async Task UpdateAuthor(AuthorModel authorToBeUpdated, AuthorModel author)
+        public async Task UpdateAuthor(int id, AuthorModel author)
         {
-            if ((authorToBeUpdated == null) || (author == null))
+            var authorToBeUpdated = await _unitOfWork.Authors.GetWithBooksByIdAsync(id);
+            if (ExistsAuthor(authorToBeUpdated))
             {
-                throw new ArgumentNullException(nameof(authorToBeUpdated));
+                authorToBeUpdated.Name = author.Name;
+                await _unitOfWork.CommitAsync();
             }
-            
-            authorToBeUpdated.Name = author.Name;
-
-            await _unitOfWork.CommitAsync();
+        }
+        
+        private bool ExistsAuthor(AuthorModel author)
+        {
+            return author != null;
         }
     }
 }

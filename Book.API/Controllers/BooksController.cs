@@ -5,6 +5,7 @@ using Book.API.Resources;
 using Book.API.Validators;
 using Book.Core.Models;
 using Book.Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Book.API.Controllers
@@ -15,11 +16,14 @@ namespace Book.API.Controllers
     {
         private readonly IBookService _bookService;
         private readonly IMapper _mapper;
+        private readonly AbstractValidator<SaveBookResource> _validator;
 
-        public BooksController(IBookService bookService, IMapper mapper)
+        public BooksController(IBookService bookService, IMapper mapper, AbstractValidator<SaveBookResource> validator)
         {
-            this._mapper = mapper;
-            this._bookService = bookService;
+            _mapper = mapper;
+            _bookService = bookService;
+            _validator = validator;
+
         }
         
         [HttpGet("")]
@@ -44,8 +48,7 @@ namespace Book.API.Controllers
         [HttpPost("")]
         public async Task<ActionResult<BookResource>> CreateBook([FromBody] SaveBookResource saveBookResource)
         {
-            var validator = new SaveBookResourceValidator();
-            var validationResult = await validator.ValidateAsync(saveBookResource);
+            var validationResult = await _validator.ValidateAsync(saveBookResource);
 
             if (!validationResult.IsValid)
             {
@@ -55,10 +58,8 @@ namespace Book.API.Controllers
             var bookToCreate = _mapper.Map<SaveBookResource, BookModel>(saveBookResource);
 
             var newBook = await _bookService.CreateBook(bookToCreate);
-
-            var book = await _bookService.GetBookById(newBook.Id);
-
-            var bookResource = _mapper.Map<BookModel, BookResource>(book);
+            
+            var bookResource = _mapper.Map<BookModel, BookResource>(newBook);
 
             return Ok(bookResource);
         }
@@ -66,8 +67,7 @@ namespace Book.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<BookResource>> UpdateBook(int id, [FromBody] SaveBookResource saveBookResource)
         {
-            var validator = new SaveBookResourceValidator();
-            var validationResult = await validator.ValidateAsync(saveBookResource);
+            var validationResult = await _validator.ValidateAsync(saveBookResource);
 
             var requestIsInvalid = id == 0 || !validationResult.IsValid;
 
@@ -75,17 +75,10 @@ namespace Book.API.Controllers
             {
                 return BadRequest(validationResult.Errors);
             }
-
-            var bookToBeUpdate = await _bookService.GetBookById(id);
-
-            if (bookToBeUpdate == null)
-            {
-                return NotFound();
-            }
-
+            
             var book = _mapper.Map<SaveBookResource, BookModel>(saveBookResource);
 
-            await _bookService.UpdateBook(bookToBeUpdate, book);
+            await _bookService.UpdateBook(id, book);
 
             var updatedBook = await _bookService.GetBookById(id);
             var updatedBookResource = _mapper.Map<BookModel, BookResource>(updatedBook);

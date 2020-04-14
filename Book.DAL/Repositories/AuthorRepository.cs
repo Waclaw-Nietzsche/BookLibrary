@@ -21,9 +21,9 @@ namespace Book.DAL.Repositories
                 .ToListAsync();
         }
 
-        public Task<AuthorModel> GetWithBooksByIdAsync(int id)
+        public async Task<AuthorModel> GetWithBooksByIdAsync(int id)
         {
-            return BookDbContext.Authors
+            return await BookDbContext.Authors
                 .Include(artmodel => artmodel.Books)
                 .SingleOrDefaultAsync(artmodel => artmodel.Id == id);
         }

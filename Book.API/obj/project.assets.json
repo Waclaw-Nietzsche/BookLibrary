@@ -1397,6 +1397,9 @@
       "Book.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "FluentValidation": "8.6.2"
+        },
         "compile": {
           "bin/placeholder/Book.Core.dll": {}
         },

@@ -104,3 +104,4 @@ D:\Study\8term\DotNet\Book\Book.BLL.Unit\bin\Debug\netcoreapp3.1\xunit.abstracti
 D:\Study\8term\DotNet\Book\Book.BLL.Unit\bin\Debug\netcoreapp3.1\xunit.assert.dll
 D:\Study\8term\DotNet\Book\Book.BLL.Unit\bin\Debug\netcoreapp3.1\xunit.core.dll
 D:\Study\8term\DotNet\Book\Book.BLL.Unit\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
+D:\Study\8term\DotNet\Book\Book.BLL.Unit\bin\Debug\netcoreapp3.1\FluentValidation.dll

@@ -5,6 +5,7 @@ using Book.API.Resources;
 using Book.API.Validators;
 using Book.Core.Models;
 using Book.Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Book.API.Controllers
@@ -15,11 +16,13 @@ namespace Book.API.Controllers
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
+        private readonly AbstractValidator<SaveAuthorResource> _validator;
 
-        public AuthorsController(IAuthorService authorService, IMapper mapper)
+        public AuthorsController(IAuthorService authorService, IMapper mapper, AbstractValidator<SaveAuthorResource> validator)
         {
-            this._mapper = mapper;
-            this._authorService = authorService;
+            _mapper = mapper;
+            _authorService = authorService;
+            _validator = validator;
         }
         
         [HttpGet("")]
@@ -43,8 +46,7 @@ namespace Book.API.Controllers
         [HttpPost("")]
         public async Task<ActionResult<AuthorResource>> CreateAuthor([FromBody] SaveAuthorResource saveAuthorResource)
         {
-            var validator = new SaveAuthorResourceValidator();
-            var validationResult = await validator.ValidateAsync(saveAuthorResource);
+            var validationResult = await _validator.ValidateAsync(saveAuthorResource);
 
             if (!validationResult.IsValid)
             {
@@ -54,39 +56,27 @@ namespace Book.API.Controllers
             var authorToCreate = _mapper.Map<SaveAuthorResource, AuthorModel>(saveAuthorResource);
 
             var newAuthor = await _authorService.CreateAuthor(authorToCreate);
-
-            var author = await _authorService.GetAuthorById(newAuthor.Id);
-
-            var authorResource = _mapper.Map<AuthorModel, AuthorResource>(author);
+            
+            var authorResource = _mapper.Map<AuthorModel, AuthorResource>(newAuthor);
 
             return Ok(authorResource);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<AuthorResource>> UpdateAuthor(int id,
-            [FromBody] SaveAuthorResource saveAuthorResource)
+        public async Task<ActionResult<AuthorResource>> UpdateAuthor(int id, [FromBody] SaveAuthorResource saveAuthorResource)
         {
-            var validator = new SaveAuthorResourceValidator();
-            var validationResult = await validator.ValidateAsync(saveAuthorResource);
+            var validationResult = await _validator.ValidateAsync(saveAuthorResource);
 
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
-
-            var authorToBeUpdated = await _authorService.GetAuthorById(id);
-
-            if (authorToBeUpdated == null)
-            {
-                return NotFound();
-            }
-
+            
             var author = _mapper.Map<SaveAuthorResource, AuthorModel>(saveAuthorResource);
 
-            await _authorService.UpdateAuthor(authorToBeUpdated, author);
+            await _authorService.UpdateAuthor(id, author);
 
             var updatedAuthor = await _authorService.GetAuthorById(id);
-
             var updatedAuthorResource = _mapper.Map<AuthorModel, AuthorResource>(updatedAuthor);
 
             return Ok(updatedAuthorResource);

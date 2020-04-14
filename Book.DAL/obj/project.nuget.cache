@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IrNLmhm0J5aHKuRwQmxYbsQuxumUqInXdT82gZOBulyddpZuYlHGZArLZi3mFwvQxrcqqXxKItIJwjBesnZU8A==",
+  "dgSpecHash": "w2DaAA7cdVYyCOUlJ1raeorEfOoX+HiRV4PaZPw7044l9lfjrggUKqdIkvPlFdQ/nR51O1BrFS+Tmv+i5Pr8zA==",
   "success": true,
   "projectFilePath": "D:\\Study\\8term\\DotNet\\Book\\Book.DAL\\Book.DAL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Slava\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

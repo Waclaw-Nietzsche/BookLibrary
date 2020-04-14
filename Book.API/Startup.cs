@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Book.API.Resources;
+using Book.API.Validators;
 using Book.BLL;
 using Book.Core;
 using Book.Core.Services;
 using Book.DAL;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -43,6 +46,8 @@ namespace Book.API
                     x => x.MigrationsAssembly("Book.DAL")));
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<IAuthorService, AuthorService>();
+            services.AddScoped<AbstractValidator<SaveBookResource>, SaveBookResourceValidator>();
+            services.AddScoped<AbstractValidator<SaveAuthorResource>, SaveAuthorResourceValidator>();
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo

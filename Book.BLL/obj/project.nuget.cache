@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Our17HzhpvL2NOdk/LhlM1Th43CZtbddLqXsrbRzesmRpHu98PWvLNi+dPD3vvZxHqrt8I8Uvd8L0pEo0vAh7Q==",
+  "dgSpecHash": "MBgJzdDRoPHBYsbb6mCtcI66DiWVFriS0eS9v8/Knu/9h8HcgUk//5fQudlkKt7uh5tDX9TD09bb74WLjXdb5w==",
   "success": true,
   "projectFilePath": "D:\\Study\\8term\\DotNet\\Book\\Book.BLL\\Book.BLL.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Slava\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+  ],
   "logs": []
 }
