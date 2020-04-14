@@ -13,7 +13,7 @@ namespace Book.BLL
  
          public BookService(IUnitOfWork unitOfWork)
          {
-             this._unitOfWork = unitOfWork;
+             _unitOfWork = unitOfWork;
          }
  
          public async Task<BookModel> CreateBook(BookModel newBook)

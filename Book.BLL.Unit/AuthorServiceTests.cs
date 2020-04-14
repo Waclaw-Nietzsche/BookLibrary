@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Book.Core;
 using Book.Core.Models;
+using Book.Core.Services;
 using Moq;
 using Xunit;
 
@@ -9,22 +10,37 @@ namespace Book.BLL.Unit
 {
     public class AuthorServiceTests
     {
-        [Fact]
-        public void CreateAuthor_NoObject()
+        private Mock<IUnitOfWork> _unitOfWork = new Mock<IUnitOfWork>();
+        
+        
+        //[Fact]
+        public void CreateAuthor_NoObjectTaskCompleted()
         {
             // Arrange
-            var id = 0;
             var author = new AuthorModel();
-            var unitOfWork = new Mock<IUnitOfWork>();
-            
-            var service = new AuthorService(unitOfWork.Object);
-            
+            var service = new AuthorService(_unitOfWork.Object);
+            TaskStatus status = TaskStatus.RanToCompletion;
+
             // Act
             author = null;
             var result = service.CreateAuthor(author);
 
             // Assert
-            Assert.Null(service.CreateAuthor(author));
+            Assert.Equal(status, result.Status);
+        }
+        
+        //[Fact]
+        public async void GetAuthorById_Task_Return_OkResult()  
+        {  
+            //Arrange  
+            Mock<IAuthorService> mock = new Mock<IAuthorService>();
+            var Id = 1;  
+            
+            //Act  
+            var data = mock.Object.GetAuthorById(Id);;
+  
+            //Assert  
+            await Assert.IsType<Task<AuthorModel>>(data);  
         }
         
         //[Fact]

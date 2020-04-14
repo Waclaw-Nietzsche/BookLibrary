@@ -17,6 +17,9 @@
         "projectReferences": {
           "D:\\Study\\8term\\DotNet\\Book\\Book.BLL\\Book.BLL.csproj": {
             "projectPath": "D:\\Study\\8term\\DotNet\\Book\\Book.BLL\\Book.BLL.csproj"
+          },
+          "D:\\Study\\8term\\DotNet\\Book\\Book.DAL\\Book.DAL.csproj": {
+            "projectPath": "D:\\Study\\8term\\DotNet\\Book\\Book.DAL\\Book.DAL.csproj"
           }
         }
       }

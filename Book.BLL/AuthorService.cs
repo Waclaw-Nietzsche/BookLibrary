@@ -13,7 +13,7 @@ namespace Book.BLL
 
         public AuthorService(IUnitOfWork unitOfWork)
         {
-            this._unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<AuthorModel> CreateAuthor(AuthorModel newAuthor)
