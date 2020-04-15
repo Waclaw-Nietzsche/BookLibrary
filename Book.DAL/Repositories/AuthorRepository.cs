@@ -27,5 +27,10 @@ namespace Book.DAL.Repositories
                 .Include(artmodel => artmodel.Books)
                 .SingleOrDefaultAsync(artmodel => artmodel.Id == id);
         }
+
+        public async Task<bool> ExistsAuthor(int id)
+        {
+            return await GetByIdAsync(id) != null;
+        }
     }
 }

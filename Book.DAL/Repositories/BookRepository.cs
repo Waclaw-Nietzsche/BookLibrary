@@ -36,5 +36,10 @@ namespace Book.DAL.Repositories
                 .Where(model => model.AuthorId == authorId)
                 .ToListAsync();
         }
+
+        public async Task<bool> ExistsBook(int id)
+        {
+            return await GetByIdAsync(id) != null;
+        }
     }
 }

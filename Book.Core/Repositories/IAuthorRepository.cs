@@ -8,5 +8,6 @@ namespace Book.Core.Repositories
     {
         Task<IEnumerable<AuthorModel>> GetAllWithBooksAsync();
         Task<AuthorModel> GetWithBooksByIdAsync(int id);
+        Task<bool> ExistsAuthor(int id);
     }
 }

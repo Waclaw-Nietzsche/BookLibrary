@@ -11,103 +11,144 @@ using Book.DAL;
 using Moq;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace Book.BLL.Unit
 {
     public class BookServiceTests
     {
-        private Mock<IUnitOfWork> _unitOfWork = new Mock<IUnitOfWork>();
-        private readonly ITestOutputHelper _testOutputHelper;
-        
-        public BookServiceTests(ITestOutputHelper testOutputHelper)
+        public (Mock<IUnitOfWork> unitOfWork, Mock<IBookRepository> bookRepository, Dictionary<int, BookModel> context) GetMock()
         {
-            _testOutputHelper = testOutputHelper;
+            Mock<IUnitOfWork> unitOfWork = new Mock<IUnitOfWork>(MockBehavior.Strict);
+            Mock<IBookRepository> bookRepository = new Mock<IBookRepository>(MockBehavior.Strict);
+
+            Dictionary<int, BookModel> context = new Dictionary<int, BookModel>
+            {
+                [1] = new BookModel
+                {
+                    Name = "Island of treasures",
+                    AuthorId = 1,
+                },
+                [2] = new BookModel
+                {
+                    Name = "Spy story",
+                    AuthorId = 2,
+                },
+                [3] = new BookModel
+                {
+                    Name = "Tragicomedy",
+                    AuthorId = 3,
+                }
+            };
+
+            unitOfWork.SetupGet(e => e.Books).Returns(bookRepository.Object);
+            unitOfWork.Setup(e => e.CommitAsync()).ReturnsAsync(0);
+
+            bookRepository.Setup(e => e.ExistsBook(It.IsAny<int>())).ReturnsAsync((int id) => context.ContainsKey(id));
+            bookRepository.Setup(e => e.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((int id) => context[id]);
+
+            return (unitOfWork, bookRepository, context);
+
         }
 
         [Fact]
-        public void CreateBook_NoObjectTaskCompleted()
-        {
-            // Arrange
-            var book = new BookModel();
-            var service = new BookService(_unitOfWork.Object);
-            TaskStatus status = TaskStatus.RanToCompletion;
-
-            // Act
-            book = null;
-            var result = service.CreateBook(book);
-
-            // Assert
-            Assert.Equal(status, result.Status);
-        }
-        
-        [Fact]
-        public async void GetBookById_Task_Return_OkResult()  
-        {  
-            //Arrange  
-            Mock<IBookService> mock = new Mock<IBookService>();
-            var Id = 1;  
-            
-            //Act  
-            var data = mock.Object.GetBookById(Id);
-  
-            //Assert  
-            await Assert.IsType<Task<BookModel>>(data);  
-        }  
-        
-        [Fact]
-        public async void GetAllWithAuthor_Task_Return_OkResult()  
-        {  
-            //Arrange  
-            Mock<IBookService> mock = new Mock<IBookService>();
-
-            //Act  
-            var data = mock.Object.GetAllWithAuthor();
-  
-            //Assert  
-            await Assert.IsType<Task<IEnumerable<BookModel>>>(data);  
-        }
-        
-        [Fact]
-        public async void GetBooksByAuthorId_Task_Return_OkResult()  
-        {
-            //Arrange  
-            Mock<IBookService> mock = new Mock<IBookService>();
-            var authorId = 1;  
-            
-            //Act  
-            var data = mock.Object.GetBooksByAuthorId(authorId);
-  
-            //Assert  
-            await Assert.IsType<Task<IEnumerable<BookModel>>>(data);  
-        }
-        
-        //[Fact]
-        public void UpdateBook_Success()
+        public async Task CreateBook_Success()
         {
             // Arrange
+            var (unitOfWork, bookRepository, context) = GetMock();
+            bookRepository.Setup(e => e.AddAsync(It.IsAny<BookModel>()))
+                .Callback((BookModel book) => { context.Add(4, book); }).Returns((BookModel _) => Task.CompletedTask);
+
             var book = new BookModel
             {
-                AuthorId = 1,
-                Name = "Mathematics",
-                Id = 1
+                Name = "Biography"
             };
-            var bookToBeUpdated = new BookModel
-            {
-                AuthorId = 2,
-                Name = "History",
-                Id = 2
-            };
-            var unitOfWork = new Mock<IUnitOfWork>();
-            unitOfWork.Setup(x => x.CommitAsync());
-
-            var bookData = new BookService(unitOfWork.Object);
+            var bookService = new BookService(unitOfWork.Object);
 
             // Act
-            var result = bookData.UpdateBook(bookToBeUpdated.Id, book);
-
+            await bookService.CreateBook(book);
+            
             // Assert
-            Assert.Equal(bookToBeUpdated.Name, book.Name);
-            Assert.Equal(bookToBeUpdated.AuthorId, book.AuthorId);
+            Assert.True(context.ContainsKey(4));
+
         }
+
+        [Fact]
+        public async Task CreateBook_Failed()
+        {
+            // Arrange
+            var (unitOfWork, bookRepository, context) = GetMock();
+            bookRepository.Setup(e => e.AddAsync(It.IsAny<BookModel>()))
+                .Callback((BookModel book) => { context.Add(5, null); }).Throws<NullReferenceException>();
+
+            BookModel book = null;
+            var bookService = new BookService(unitOfWork.Object);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<NullReferenceException>(() => bookService.CreateBook(book));
+        }
+        
+        [Fact]
+        public async Task DeleteBook_Success()
+        {
+            // Arrange
+            var (unitOfWork, bookRepository, context) = GetMock();
+            bookRepository.Setup(e => e.Remove(It.IsAny<BookModel>()))
+                .Callback((BookModel book) => { context.Remove(book.Id); });
+
+            var book = new BookModel
+            {
+                Id = 3,
+                Name = "Tragicomedy"
+            };
+            var bookService = new BookService(unitOfWork.Object);
+
+            // Act
+            await bookService.DeleteBook(book);
+            
+            // Assert
+            Assert.False(context.ContainsKey(3));
+
+        }
+        
+        [Fact]
+        public async Task UpdateBook_Success()
+        {
+            // Arrange
+            var (unitOfWork, bookRepository, context)  = GetMock();
+            bookRepository.Setup(e => e.GetWithAuthorByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync((int id) => context[id]);
+            
+            var book = new BookModel
+            {
+                Name = "Monography"
+            };
+            var bookService = new BookService(unitOfWork.Object);
+        
+            // Act
+            await bookService.UpdateBook(3, book);
+            
+            // Assert
+            Assert.Equal((await unitOfWork.Object.Books.GetByIdAsync(3)).Name, book.Name);
+        }
+        
+        [Fact]
+        public async Task UpdateBook_Failed()
+        {
+            // Arrange
+            var (unitOfWork, bookRepository, context)  = GetMock();
+            bookRepository.Setup(e => e.GetWithAuthorByIdAsync(It.IsAny<int>()))
+                .Throws<NullReferenceException>();
+            
+            var book = new BookModel
+            {
+                Name = ""
+            };
+            var bookService = new BookService(unitOfWork.Object);
+            
+            // Act & Assert
+            await Assert.ThrowsAsync<NullReferenceException>(() => bookService.UpdateBook(4, book));
+        }
+        
     }
 }
